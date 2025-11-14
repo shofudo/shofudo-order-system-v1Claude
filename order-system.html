@@ -17,32 +17,34 @@
             background: linear-gradient(135deg, #f5f0e8 0%, #ebe4d8 100%);
             color: #333;
             overflow-x: hidden;
+            padding: 0;
+            margin: 0;
         }
 
         .container {
             max-width: 100vw;
-            padding: 10px;
+            padding: 5px;
             min-height: 100vh;
         }
 
         /* タブ切り替え */
         .tab-buttons {
             display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 5px;
+            margin-bottom: 8px;
             position: sticky;
             top: 0;
             background: #f5f0e8;
-            padding: 10px 0;
+            padding: 5px 0;
             z-index: 100;
         }
 
         .tab-btn {
             flex: 1;
-            padding: 15px;
+            padding: 10px;
             border: none;
-            border-radius: 12px;
-            font-size: 18px;
+            border-radius: 8px;
+            font-size: 14px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
@@ -53,7 +55,7 @@
         .tab-btn.active {
             background: linear-gradient(135deg, #8b7355 0%, #a08968 100%);
             color: white;
-            box-shadow: 0 4px 12px rgba(139, 115, 85, 0.3);
+            box-shadow: 0 2px 6px rgba(139, 115, 85, 0.3);
         }
 
         .page {
@@ -80,6 +82,92 @@
             margin-bottom: 15px;
             padding-bottom: 10px;
             border-bottom: 2px solid #e0d8cc;
+        }
+
+        /* 表形式の設定テーブル */
+        .settings-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .settings-table th {
+            background: #f5f0e8;
+            padding: 10px 5px;
+            text-align: center;
+            font-weight: bold;
+            color: #666;
+            border: 1px solid #e0d8cc;
+        }
+
+        .settings-table td {
+            padding: 8px 5px;
+            text-align: center;
+            border: 1px solid #e0d8cc;
+        }
+
+        .settings-table input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .settings-table input[type="text"],
+        .settings-table input[type="number"] {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #e0d8cc;
+            border-radius: 4px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .settings-table select {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #e0d8cc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .allergy-btn {
+            background: #e0d8cc;
+            color: #666;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .allergy-btn:active {
+            background: #d0c8bc;
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+        }
+
+        .custom-input-row {
+            background: #faf8f5;
         }
 
         .room-grid {
@@ -162,27 +250,51 @@
             font-size: 14px;
         }
 
+        .allergy-modal-content {
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .allergy-input-group {
+            margin-bottom: 15px;
+        }
+
+        .allergy-input-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .allergy-input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e0d8cc;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
         .btn {
-            padding: 15px 30px;
+            padding: 12px 24px;
             border: none;
-            border-radius: 12px;
-            font-size: 18px;
+            border-radius: 10px;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
             width: 100%;
-            margin-top: 10px;
+            margin-top: 8px;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, #8b7355 0%, #a08968 100%);
             color: white;
-            box-shadow: 0 4px 12px rgba(139, 115, 85, 0.3);
+            box-shadow: 0 2px 8px rgba(139, 115, 85, 0.3);
         }
 
         .btn-primary:active {
             transform: translateY(2px);
-            box-shadow: 0 2px 6px rgba(139, 115, 85, 0.3);
+            box-shadow: 0 1px 4px rgba(139, 115, 85, 0.3);
         }
 
         .btn-secondary {
@@ -192,94 +304,123 @@
 
         /* 営業ページ */
         .time-group {
-            margin-bottom: 25px;
+            margin-bottom: 10px;
         }
 
         .time-header {
             background: linear-gradient(135deg, #8b7355 0%, #a08968 100%);
             color: white;
-            padding: 12px 20px;
-            border-radius: 10px;
-            font-size: 20px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
             text-align: center;
-            box-shadow: 0 2px 8px rgba(139, 115, 85, 0.3);
+            box-shadow: 0 1px 4px rgba(139, 115, 85, 0.3);
         }
 
         .room-card {
             background: white;
-            border-radius: 15px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-radius: 10px;
+            padding: 8px;
+            margin-bottom: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .room-info {
+            min-width: 120px;
+            max-width: 120px;
+            padding-right: 10px;
+            border-right: 2px solid #f0ebe3;
         }
 
         .room-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #f0ebe3;
+            margin-bottom: 2px;
         }
 
         .room-name {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: bold;
             color: #8b7355;
         }
 
         .room-plan {
-            font-size: 14px;
+            font-size: 10px;
             color: #999;
-            margin-top: 3px;
+            margin-top: 2px;
         }
 
         .room-people {
-            font-size: 32px;
+            font-size: 24px;
             font-weight: bold;
             color: #8b7355;
         }
 
         .room-memo {
-            font-size: 13px;
+            font-size: 10px;
             color: #666;
-            margin-top: 5px;
+            margin-top: 3px;
             font-style: italic;
         }
 
+        .eating-speed {
+            display: inline-block;
+            padding: 3px 8px;
+            background: #e8e8e8;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 4px;
+            transition: all 0.3s;
+        }
+
+        .eating-speed:active {
+            background: #d8d8d8;
+        }
+
         .course-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 10px;
+            display: flex;
+            gap: 8px;
+            flex: 1;
+            flex-wrap: wrap;
+            align-items: center;
         }
 
         .course-item {
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .course-name {
-            font-size: 13px;
+            font-size: 10px;
             color: #666;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
             font-weight: bold;
         }
 
         .course-button {
-            width: 70px;
-            height: 70px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            border: 3px solid #ddd;
+            border: 2px solid #ddd;
             background: #f5f5f5;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
-            margin: 0 auto 5px;
+            margin-bottom: 3px;
             position: relative;
         }
 
@@ -308,33 +449,33 @@
         }
 
         .course-info {
-            font-size: 11px;
+            font-size: 9px;
             color: #666;
-            min-height: 30px;
+            min-height: 20px;
         }
 
         .time-display {
             font-weight: bold;
             color: #8b7355;
-            font-size: 13px;
+            font-size: 10px;
         }
 
         .staff-display {
             color: #666;
-            font-size: 11px;
-            margin-top: 2px;
+            font-size: 9px;
+            margin-top: 1px;
         }
 
         .allergy-badge {
-            font-size: 10px;
+            font-size: 8px;
             color: #d88a8a;
             font-weight: bold;
             position: absolute;
-            top: -8px;
-            right: -8px;
+            top: -6px;
+            right: -6px;
             background: white;
-            padding: 2px 6px;
-            border-radius: 10px;
+            padding: 1px 4px;
+            border-radius: 8px;
             border: 1px solid #d88a8a;
             white-space: nowrap;
         }
@@ -343,17 +484,24 @@
             display: inline-block;
             background: #ffd6e0;
             color: #d5006d;
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 11px;
+            padding: 2px 5px;
+            border-radius: 8px;
+            font-size: 9px;
             font-weight: bold;
-            margin-left: 5px;
+            margin-left: 3px;
         }
 
         .pressed-time {
-            font-size: 10px;
+            font-size: 8px;
             color: #999;
-            margin-top: 3px;
+            margin-top: 2px;
+        }
+
+        .w-count-display {
+            font-size: 9px;
+            font-weight: bold;
+            color: #ff1744;
+            margin-top: 2px;
         }
 
         /* モーダル */
@@ -440,17 +588,17 @@
 
         .undo-btn {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
+            bottom: 15px;
+            right: 15px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             background: linear-gradient(135deg, #8b7355 0%, #a08968 100%);
             color: white;
             border: none;
-            font-size: 24px;
+            font-size: 20px;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
             z-index: 50;
         }
 
@@ -460,9 +608,9 @@
 
         @media (max-width: 768px) {
             .course-button {
-                width: 60px;
-                height: 60px;
-                font-size: 16px;
+                width: 45px;
+                height: 45px;
+                font-size: 14px;
             }
         }
     </style>
@@ -478,17 +626,26 @@
         <!-- 設定ページ -->
         <div id="index-page" class="page active">
             <div class="section">
-                <div class="section-title">1. 部屋設定</div>
-                <div class="room-grid" id="room-checkboxes">
-                    <!-- 固定部屋チェックボックス -->
-                </div>
-            </div>
-
-            <div class="section">
-                <div class="section-title">2. 各部屋の設定</div>
-                <div id="room-configs">
-                    <!-- 各部屋の設定が動的に追加される -->
-                </div>
+                <div class="section-title">1. 本日の設定</div>
+                <p style="font-size: 13px; color: #666; margin-bottom: 15px;">
+                    チェックした部屋だけが営業ページに反映される設定です。
+                </p>
+                <table class="settings-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px;">選</th>
+                            <th style="width: 100px;">部屋名</th>
+                            <th style="width: 80px;">人数</th>
+                            <th style="width: 120px;">プラン</th>
+                            <th style="width: 100px;">夕食開始</th>
+                            <th style="width: 180px;">お祝い・アレルギー</th>
+                            <th style="width: 100px;">部屋メモ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="room-settings-table">
+                        <!-- 動的に生成 -->
+                    </tbody>
+                </table>
             </div>
 
             <div class="section">
@@ -503,6 +660,14 @@
                 <div class="section-title">9. スタッフ（出勤者）選択</div>
                 <div class="room-grid" id="staff-checkboxes">
                     <!-- スタッフチェックボックス -->
+                </div>
+                <div style="margin-top: 15px;">
+                    <label style="font-weight: bold; margin-bottom: 8px; display: block;">カスタマイズスタッフ</label>
+                    <input type="text" id="custom-staff-input" placeholder="スタッフ名を入力" 
+                           style="width: 100%; padding: 12px; border: 2px solid #e0d8cc; border-radius: 8px; font-size: 16px;">
+                    <button class="btn btn-secondary" onclick="addCustomStaff()" style="margin-top: 10px;">
+                        カスタマイズスタッフを追加
+                    </button>
                 </div>
             </div>
 
@@ -544,11 +709,15 @@
         let settings = {
             rooms: [],
             staff: [],
-            additionalDishes: []
+            additionalDishes: [],
+            customRooms: [],
+            customStaff: []
         };
 
         let orderState = {};
         let lastAction = null;
+
+        const EATING_SPEEDS = ['VF', 'F', 'LF', 'N', 'LS', 'S', 'VS'];
 
         // 初期化
         function init() {
@@ -562,6 +731,9 @@
             const saved = localStorage.getItem('orderSettings');
             if (saved) {
                 settings = JSON.parse(saved);
+                // 古いデータの互換性のため
+                if (!settings.customRooms) settings.customRooms = [];
+                if (!settings.customStaff) settings.customStaff = [];
             } else {
                 // デフォルト設定
                 settings = {
@@ -574,10 +746,13 @@
                         memo: '',
                         allergies: {},
                         hasCake: false,
-                        hasPlate: false
+                        hasPlate: false,
+                        isCustom: false
                     })),
-                    staff: FIXED_STAFF.map(name => ({ name: name, enabled: true })),
-                    additionalDishes: []
+                    staff: FIXED_STAFF.map(name => ({ name: name, enabled: true, isCustom: false })),
+                    additionalDishes: [],
+                    customRooms: [],
+                    customStaff: []
                 };
             }
 
@@ -612,10 +787,13 @@
                     memo: '',
                     allergies: {},
                     hasCake: false,
-                    hasPlate: false
+                    hasPlate: false,
+                    isCustom: false
                 })),
-                staff: FIXED_STAFF.map(name => ({ name: name, enabled: true })),
-                additionalDishes: []
+                staff: FIXED_STAFF.map(name => ({ name: name, enabled: true, isCustom: false })),
+                additionalDishes: [],
+                customRooms: [],
+                customStaff: []
             };
             
             localStorage.setItem('orderSettings', JSON.stringify(settings));
@@ -626,9 +804,12 @@
         // Order状態初期化
         function initOrderState() {
             orderState = {};
-            settings.rooms.filter(r => r.enabled).forEach(room => {
+            const allRooms = [...settings.rooms.filter(r => r.enabled), ...settings.customRooms.filter(r => r.enabled)];
+            
+            allRooms.forEach(room => {
                 const courses = PLANS[room.plan];
                 orderState[room.name] = {
+                    eatingSpeed: 'N',
                     courses: {}
                 };
                 courses.forEach(course => {
@@ -650,90 +831,98 @@
 
         // 設定ページレンダリング
         function renderIndexPage() {
-            // 部屋チェックボックス
-            const roomCheckboxes = document.getElementById('room-checkboxes');
-            roomCheckboxes.innerHTML = '';
-            settings.rooms.forEach((room, index) => {
-                const div = document.createElement('div');
-                div.className = 'checkbox-item';
-                div.innerHTML = `
-                    <input type="checkbox" id="room-${index}" ${room.enabled ? 'checked' : ''} 
-                           onchange="toggleRoom(${index})">
-                    <label for="room-${index}">${room.name}</label>
-                `;
-                roomCheckboxes.appendChild(div);
-            });
-
-            // 各部屋の設定
-            const roomConfigs = document.getElementById('room-configs');
-            roomConfigs.innerHTML = '';
-            settings.rooms.filter(r => r.enabled).forEach((room, index) => {
-                const actualIndex = settings.rooms.indexOf(room);
-                const div = document.createElement('div');
-                div.className = 'room-config';
+            // 部屋設定テーブル
+            const tableBody = document.getElementById('room-settings-table');
+            tableBody.innerHTML = '';
+            
+            // 全ての部屋（固定＋カスタム）
+            const allRooms = [...settings.rooms, ...settings.customRooms];
+            
+            allRooms.forEach((room, index) => {
+                const tr = document.createElement('tr');
+                if (room.isCustom) tr.className = 'custom-input-row';
                 
-                const courses = PLANS[room.plan];
-                const insertOptions = courses.map(c => `<option value="${c}">${c}の前</option>`).join('');
+                const isCustomRoom = room.isCustom;
+                const actualIndex = isCustomRoom ? 
+                    settings.rooms.length + settings.customRooms.indexOf(room) : 
+                    settings.rooms.indexOf(room);
                 
-                div.innerHTML = `
-                    <div class="room-config-header">
-                        <h4>${room.name}</h4>
-                    </div>
-                    <div class="input-group">
-                        <label>人数</label>
+                tr.innerHTML = `
+                    <td>
+                        <input type="checkbox" ${room.enabled ? 'checked' : ''} 
+                               onchange="${isCustomRoom ? `toggleCustomRoom(${settings.customRooms.indexOf(room)})` : `toggleRoom(${actualIndex})`}">
+                    </td>
+                    <td>
+                        ${isCustomRoom ? 
+                            `<input type="text" value="${room.name}" onchange="updateCustomRoomName(${settings.customRooms.indexOf(room)}, this.value)" placeholder="部屋名">` : 
+                            room.name
+                        }
+                        ${isCustomRoom ? 
+                            `<br><button class="delete-room-btn" style="margin-top: 5px; padding: 4px 8px; font-size: 11px;" onclick="deleteCustomRoom(${settings.customRooms.indexOf(room)})">削除</button>` : 
+                            ''
+                        }
+                    </td>
+                    <td>
                         <input type="number" min="1" max="10" value="${room.people}" 
-                               onchange="updateRoomPeople(${actualIndex}, this.value)">
-                    </div>
-                    <div class="input-group">
-                        <label>開始時間</label>
-                        <select onchange="updateRoomTime(${actualIndex}, this.value)">
-                            <option value="18:00" ${room.time === '18:00' ? 'selected' : ''}>18:00</option>
-                            <option value="18:30" ${room.time === '18:30' ? 'selected' : ''}>18:30</option>
-                            <option value="19:00" ${room.time === '19:00' ? 'selected' : ''}>19:00</option>
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <label>プラン</label>
-                        <select onchange="updateRoomPlan(${actualIndex}, this.value)">
+                               onchange="${isCustomRoom ? `updateCustomRoomPeople(${settings.customRooms.indexOf(room)}, this.value)` : `updateRoomPeople(${actualIndex}, this.value)`}">
+                    </td>
+                    <td>
+                        <select onchange="${isCustomRoom ? `updateCustomRoomPlan(${settings.customRooms.indexOf(room)}, this.value)` : `updateRoomPlan(${actualIndex}, this.value)`}">
                             ${Object.keys(PLANS).map(p => 
                                 `<option value="${p}" ${room.plan === p ? 'selected' : ''}>${p}</option>`
                             ).join('')}
                         </select>
-                    </div>
-                    <div class="input-group">
-                        <label>部屋メモ（10文字まで）</label>
-                        <input type="text" maxlength="10" value="${room.memo}" 
-                               onchange="updateRoomMemo(${actualIndex}, this.value)">
-                    </div>
-                    <div class="input-group">
-                        <label>
-                            <input type="checkbox" ${room.hasCake ? 'checked' : ''} 
-                                   onchange="updateRoomCake(${actualIndex}, this.checked)"> ケーキ
-                        </label>
-                        <label style="margin-left: 15px;">
-                            <input type="checkbox" ${room.hasPlate ? 'checked' : ''} 
-                                   onchange="updateRoomPlate(${actualIndex}, this.checked)"> プレート
-                        </label>
-                    </div>
-                    <div class="input-group">
-                        <label>料理別アレルギー設定</label>
-                        ${courses.map(course => `
-                            <div style="margin: 8px 0;">
-                                <label style="font-weight: normal; font-size: 14px;">${course}:</label>
-                                <input type="text" placeholder="例: えび・かに" 
-                                       value="${room.allergies[course] || ''}"
-                                       onchange="updateAllergy(${actualIndex}, '${course}', this.value)"
-                                       style="margin-top: 5px;">
-                            </div>
-                        `).join('')}
-                    </div>
+                    </td>
+                    <td>
+                        <select onchange="${isCustomRoom ? `updateCustomRoomTime(${settings.customRooms.indexOf(room)}, this.value)` : `updateRoomTime(${actualIndex}, this.value)`}">
+                            <option value="18:00" ${room.time === '18:00' ? 'selected' : ''}>18:00</option>
+                            <option value="18:30" ${room.time === '18:30' ? 'selected' : ''}>18:30</option>
+                            <option value="19:00" ${room.time === '19:00' ? 'selected' : ''}>19:00</option>
+                        </select>
+                    </td>
+                    <td>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" ${room.hasCake ? 'checked' : ''} 
+                                       onchange="${isCustomRoom ? `updateCustomRoomCake(${settings.customRooms.indexOf(room)}, this.checked)` : `updateRoomCake(${actualIndex}, this.checked)`}">
+                                ケーキ
+                            </label>
+                            <label>
+                                <input type="checkbox" ${room.hasPlate ? 'checked' : ''} 
+                                       onchange="${isCustomRoom ? `updateCustomRoomPlate(${settings.customRooms.indexOf(room)}, this.checked)` : `updateRoomPlate(${actualIndex}, this.checked)`}">
+                                プレート
+                            </label>
+                        </div>
+                        <button class="allergy-btn" style="margin-top: 5px;" 
+                                onclick="${isCustomRoom ? `showAllergyModal(${settings.customRooms.indexOf(room)}, true)` : `showAllergyModal(${actualIndex}, false)`}">
+                            アレルギー詳細設定
+                        </button>
+                    </td>
+                    <td>
+                        <input type="text" maxlength="10" value="${room.memo || ''}" placeholder="メモ"
+                               onchange="${isCustomRoom ? `updateCustomRoomMemo(${settings.customRooms.indexOf(room)}, this.value)` : `updateRoomMemo(${actualIndex}, this.value)`}">
+                    </td>
                 `;
-                roomConfigs.appendChild(div);
+                tableBody.appendChild(tr);
             });
+            
+            // カスタマイズ部屋追加行
+            const addRow = document.createElement('tr');
+            addRow.className = 'custom-input-row';
+            addRow.innerHTML = `
+                <td colspan="7" style="text-align: center; padding: 15px;">
+                    <button class="btn btn-secondary" onclick="addCustomRoom()" style="width: auto; padding: 10px 30px;">
+                        ＋ カスタマイズ部屋を追加
+                    </button>
+                </td>
+            `;
+            tableBody.appendChild(addRow);
 
             // スタッフチェックボックス
             const staffCheckboxes = document.getElementById('staff-checkboxes');
             staffCheckboxes.innerHTML = '';
+            
+            // 固定スタッフ
             settings.staff.forEach((staff, index) => {
                 const div = document.createElement('div');
                 div.className = 'checkbox-item';
@@ -741,6 +930,21 @@
                     <input type="checkbox" id="staff-${index}" ${staff.enabled ? 'checked' : ''} 
                            onchange="toggleStaff(${index})">
                     <label for="staff-${index}">${staff.name}</label>
+                `;
+                staffCheckboxes.appendChild(div);
+            });
+            
+            // カスタムスタッフ
+            settings.customStaff.forEach((staff, index) => {
+                const div = document.createElement('div');
+                div.className = 'checkbox-item';
+                div.style.background = '#faf8f5';
+                div.innerHTML = `
+                    <input type="checkbox" id="custom-staff-${index}" ${staff.enabled ? 'checked' : ''} 
+                           onchange="toggleCustomStaff(${index})">
+                    <label for="custom-staff-${index}">${staff.name}</label>
+                    <button class="delete-room-btn" style="margin-left: auto; padding: 6px 12px; font-size: 12px;" 
+                            onclick="deleteCustomStaff(${index})">削除</button>
                 `;
                 staffCheckboxes.appendChild(div);
             });
@@ -753,6 +957,11 @@
         function renderAdditionalDishes() {
             const container = document.getElementById('additional-dishes');
             container.innerHTML = '';
+            
+            const allRooms = [
+                ...settings.rooms.filter(r => r.enabled),
+                ...settings.customRooms.filter(r => r.enabled)
+            ];
             
             settings.additionalDishes.forEach((dish, index) => {
                 const div = document.createElement('div');
@@ -774,13 +983,16 @@
                     </div>
                     <div class="input-group">
                         <label>対象部屋</label>
-                        ${settings.rooms.filter(r => r.enabled).map((room, rIndex) => {
-                            const actualIndex = settings.rooms.indexOf(room);
+                        ${allRooms.map((room, rIndex) => {
+                            // 実際のインデックスを取得（固定部屋かカスタム部屋か）
+                            const actualIndex = room.isCustom ? 
+                                'custom-' + settings.customRooms.indexOf(room) : 
+                                settings.rooms.indexOf(room);
                             const checked = dish.rooms.includes(actualIndex) ? 'checked' : '';
                             return `
                                 <label style="display: inline-block; margin-right: 15px; font-weight: normal;">
                                     <input type="checkbox" ${checked} 
-                                           onchange="toggleDishRoom(${index}, ${actualIndex}, this.checked)">
+                                           onchange="toggleDishRoom(${index}, '${actualIndex}', this.checked)">
                                     ${room.name}
                                 </label>
                             `;
@@ -788,14 +1000,17 @@
                     </div>
                     <div class="input-group">
                         <label>挿入位置</label>
-                        ${dish.rooms.map(roomIndex => {
-                            const room = settings.rooms[roomIndex];
+                        ${dish.rooms.map(roomId => {
+                            const room = roomId.toString().startsWith('custom-') ? 
+                                settings.customRooms[parseInt(roomId.split('-')[1])] :
+                                settings.rooms[roomId];
+                            if (!room) return '';
                             const courses = PLANS[room.plan];
-                            const currentPos = dish.positions[roomIndex] || courses[0];
+                            const currentPos = dish.positions[roomId] || courses[0];
                             return `
                                 <div style="margin: 8px 0;">
                                     <label style="font-weight: normal; font-size: 14px;">${room.name}:</label>
-                                    <select onchange="updateDishPosition(${index}, ${roomIndex}, this.value)" 
+                                    <select onchange="updateDishPosition(${index}, '${roomId}', this.value)" 
                                             style="margin-top: 5px;">
                                         ${courses.map(c => 
                                             `<option value="${c}" ${currentPos === c ? 'selected' : ''}>${c}の前</option>`
@@ -833,30 +1048,38 @@
             settings.additionalDishes[index].quantity = parseInt(value);
         }
 
-        function toggleDishRoom(dishIndex, roomIndex, checked) {
+        function toggleDishRoom(dishIndex, roomId, checked) {
             const dish = settings.additionalDishes[dishIndex];
             if (checked) {
-                if (!dish.rooms.includes(roomIndex)) {
-                    dish.rooms.push(roomIndex);
-                    const room = settings.rooms[roomIndex];
+                if (!dish.rooms.includes(roomId)) {
+                    dish.rooms.push(roomId);
+                    const room = roomId.toString().startsWith('custom-') ? 
+                        settings.customRooms[parseInt(roomId.split('-')[1])] :
+                        settings.rooms[roomId];
                     const courses = PLANS[room.plan];
-                    dish.positions[roomIndex] = courses[0];
+                    dish.positions[roomId] = courses[0];
                 }
             } else {
-                dish.rooms = dish.rooms.filter(r => r !== roomIndex);
-                delete dish.positions[roomIndex];
+                dish.rooms = dish.rooms.filter(r => r !== roomId);
+                delete dish.positions[roomId];
             }
             renderAdditionalDishes();
         }
 
-        function updateDishPosition(dishIndex, roomIndex, position) {
-            settings.additionalDishes[dishIndex].positions[roomIndex] = position;
+        function updateDishPosition(dishIndex, roomId, position) {
+            settings.additionalDishes[dishIndex].positions[roomId] = position;
         }
 
         // 営業ページレンダリング
         function renderOrderPage() {
             const content = document.getElementById('order-content');
             content.innerHTML = '';
+
+            // 全ての有効な部屋（固定＋カスタム）
+            const allRooms = [
+                ...settings.rooms.filter(r => r.enabled),
+                ...settings.customRooms.filter(r => r.enabled)
+            ];
 
             // 時間帯でグループ化
             const timeGroups = {
@@ -865,8 +1088,10 @@
                 '19:00': []
             };
 
-            settings.rooms.filter(r => r.enabled).forEach(room => {
-                timeGroups[room.time].push(room);
+            allRooms.forEach(room => {
+                if (timeGroups[room.time]) {
+                    timeGroups[room.time].push(room);
+                }
             });
 
             // 各時間帯を表示
@@ -899,20 +1124,23 @@
             div.className = 'room-card';
 
             const courses = PLANS[room.plan];
-            const roomState = orderState[room.name] || { courses: {} };
+            const roomState = orderState[room.name] || { eatingSpeed: 'N', courses: {} };
 
             let cakeInfo = '';
-            if (room.hasCake) cakeInfo += '<span class="cake-badge">🎂ケーキ</span>';
-            if (room.hasPlate) cakeInfo += '<span class="cake-badge">🍽️プレート</span>';
+            if (room.hasCake) cakeInfo += '<span class="cake-badge">🎂</span>';
+            if (room.hasPlate) cakeInfo += '<span class="cake-badge">🍽️</span>';
 
             div.innerHTML = `
-                <div class="room-header">
-                    <div>
+                <div class="room-info">
+                    <div class="room-header">
                         <div class="room-name">${room.name}</div>
-                        <div class="room-plan">${room.plan}</div>
-                        ${room.memo ? `<div class="room-memo">${room.memo}</div>` : ''}
+                        <div class="room-people">${room.people}名</div>
                     </div>
-                    <div class="room-people">${room.people}名</div>
+                    <div class="room-plan">${room.plan}${cakeInfo}</div>
+                    ${room.memo ? `<div class="room-memo">${room.memo}</div>` : ''}
+                    <div class="eating-speed" onclick="showEatingSpeedModal('${room.name}')">
+                        ${roomState.eatingSpeed}
+                    </div>
                 </div>
                 <div class="course-grid" id="courses-${room.name}">
                     ${courses.map(course => createCourseButton(room, course, roomState.courses[course])).join('')}
@@ -969,7 +1197,10 @@
 
         // コースボタンクリック
         function clickCourse(roomName, courseName) {
-            const room = settings.rooms.find(r => r.name === roomName);
+            let room = settings.rooms.find(r => r.name === roomName);
+            if (!room) {
+                room = settings.customRooms.find(r => r.name === roomName);
+            }
             if (!room) return;
 
             const state = orderState[roomName].courses[courseName];
@@ -987,6 +1218,7 @@
                 if (state.status === 'none') {
                     state.status = 'wait';
                     state.pressedTime = getCurrentTime();
+                    showTimeModal(roomName, courseName);
                 } else if (state.status === 'wait') {
                     state.status = 'serve';
                     showStaffModal(roomName, courseName);
@@ -1131,7 +1363,11 @@
 
             title.textContent = '提供スタッフを選択';
             
-            const enabledStaff = settings.staff.filter(s => s.enabled);
+            const enabledStaff = [
+                ...settings.staff.filter(s => s.enabled),
+                ...settings.customStaff.filter(s => s.enabled)
+            ];
+            
             body.innerHTML = `
                 <div class="staff-select-grid">
                     ${enabledStaff.map(staff => `
@@ -1236,6 +1472,174 @@
 
         function toggleStaff(index) {
             settings.staff[index].enabled = !settings.staff[index].enabled;
+        }
+
+        // カスタマイズ部屋関連
+        function addCustomRoom() {
+            settings.customRooms.push({
+                name: '',
+                enabled: true,
+                people: 2,
+                time: '18:00',
+                plan: 'スタンダード',
+                memo: '',
+                allergies: {},
+                hasCake: false,
+                hasPlate: false,
+                isCustom: true
+            });
+            renderIndexPage();
+        }
+
+        function deleteCustomRoom(index) {
+            if (confirm('このカスタマイズ部屋を削除しますか？')) {
+                settings.customRooms.splice(index, 1);
+                renderIndexPage();
+            }
+        }
+
+        function toggleCustomRoom(index) {
+            settings.customRooms[index].enabled = !settings.customRooms[index].enabled;
+            renderIndexPage();
+        }
+
+        function updateCustomRoomName(index, value) {
+            settings.customRooms[index].name = value;
+        }
+
+        function updateCustomRoomPeople(index, value) {
+            settings.customRooms[index].people = parseInt(value);
+        }
+
+        function updateCustomRoomTime(index, value) {
+            settings.customRooms[index].time = value;
+        }
+
+        function updateCustomRoomPlan(index, value) {
+            settings.customRooms[index].plan = value;
+            settings.customRooms[index].allergies = {};
+            renderIndexPage();
+        }
+
+        function updateCustomRoomMemo(index, value) {
+            settings.customRooms[index].memo = value;
+        }
+
+        function updateCustomRoomCake(index, checked) {
+            settings.customRooms[index].hasCake = checked;
+        }
+
+        function updateCustomRoomPlate(index, checked) {
+            settings.customRooms[index].hasPlate = checked;
+        }
+
+        // カスタマイズスタッフ関連
+        function addCustomStaff() {
+            const input = document.getElementById('custom-staff-input');
+            const name = input.value.trim();
+            
+            if (!name) {
+                alert('スタッフ名を入力してください');
+                return;
+            }
+            
+            settings.customStaff.push({
+                name: name,
+                enabled: true,
+                isCustom: true
+            });
+            
+            input.value = '';
+            renderIndexPage();
+        }
+
+        function deleteCustomStaff(index) {
+            if (confirm('このカスタマイズスタッフを削除しますか？')) {
+                settings.customStaff.splice(index, 1);
+                renderIndexPage();
+            }
+        }
+
+        function toggleCustomStaff(index) {
+            settings.customStaff[index].enabled = !settings.customStaff[index].enabled;
+        }
+
+        // アレルギー設定モーダル
+        function showAllergyModal(roomIndex, isCustom) {
+            const modal = document.getElementById('modal');
+            const title = document.getElementById('modal-title');
+            const body = document.getElementById('modal-body');
+            
+            const room = isCustom ? settings.customRooms[roomIndex] : settings.rooms[roomIndex];
+            const courses = PLANS[room.plan];
+            
+            title.textContent = `${room.name} - アレルギー設定`;
+            
+            body.innerHTML = `
+                <div class="allergy-modal-content">
+                    ${courses.map(course => `
+                        <div class="allergy-input-group">
+                            <label>${course}</label>
+                            <input type="text" 
+                                   id="allergy-${course}" 
+                                   value="${room.allergies[course] || ''}" 
+                                   placeholder="例: えび・かに">
+                        </div>
+                    `).join('')}
+                </div>
+                <button class="btn btn-primary" onclick="saveAllergies(${roomIndex}, ${isCustom})">
+                    保存
+                </button>
+            `;
+            
+            modal.classList.add('active');
+        }
+
+        function saveAllergies(roomIndex, isCustom) {
+            const room = isCustom ? settings.customRooms[roomIndex] : settings.rooms[roomIndex];
+            const courses = PLANS[room.plan];
+            
+            courses.forEach(course => {
+                const input = document.getElementById(`allergy-${course}`);
+                if (input) {
+                    room.allergies[course] = input.value.trim();
+                }
+            });
+            
+            closeModal();
+            alert('アレルギー設定を保存しました');
+        }
+
+        // 食べるスピード選択モーダル
+        function showEatingSpeedModal(roomName) {
+            const modal = document.getElementById('modal');
+            const title = document.getElementById('modal-title');
+            const body = document.getElementById('modal-body');
+
+            title.textContent = '食べるスピードを選択';
+            
+            body.innerHTML = `
+                <div class="modal-buttons">
+                    ${EATING_SPEEDS.map(speed => `
+                        <button class="modal-btn" onclick="setEatingSpeed('${roomName}', '${speed}')">
+                            ${speed}
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+
+            modal.classList.add('active');
+        }
+
+        function setEatingSpeed(roomName, speed) {
+            if (!orderState[roomName]) {
+                orderState[roomName] = { eatingSpeed: 'N', courses: {} };
+            }
+            orderState[roomName].eatingSpeed = speed;
+
+            closeModal();
+            saveOrderState();
+            renderOrderPage();
         }
 
         // 初期化実行
