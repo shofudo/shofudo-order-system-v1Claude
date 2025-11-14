@@ -365,26 +365,24 @@
             line-height: 1;
         }
 
-        .room-memo {
-            font-size: 10px;
-            color: #666;
-            margin-top: 3px;
-            font-style: italic;
-            line-height: 1.2;
+        .speed-memo-row {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+            gap: 5px;
         }
 
         .eating-speed {
-            display: inline-block;
             padding: 4px 10px;
             border-radius: 8px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            margin-top: 5px;
             transition: all 0.3s;
             border: 2px solid;
             text-align: center;
             min-width: 45px;
+            flex-shrink: 0;
         }
 
         .eating-speed.speed-vf {
@@ -435,7 +433,7 @@
 
         .course-grid {
             display: flex;
-            gap: 6px;
+            gap: 52px;
             flex: 1;
             flex-wrap: wrap;
             align-items: flex-start;
@@ -447,6 +445,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
         }
 
         .course-name {
@@ -513,15 +512,17 @@
 
         .staff-display {
             position: absolute;
-            bottom: 2px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 7px;
-            color: white;
-            background: rgba(0,0,0,0.6);
-            padding: 1px 4px;
-            border-radius: 4px;
+            top: 50%;
+            left: 100%;
+            transform: translate(-10px, calc(-50% + 0px));
+            font-size: 9px;
+            color: #ffffff;
+            background: #4caf50;
+            padding: 2px 6px;
+            border-radius: 6px;
             white-space: nowrap;
+            z-index: 15;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
         .allergy-badge {
@@ -536,6 +537,7 @@
             border-radius: 6px;
             border: 1px solid #d88a8a;
             white-space: nowrap;
+            z-index: 20;
         }
 
         .cake-badge {
@@ -557,15 +559,29 @@
 
         .w-count-display {
             position: absolute;
-            top: 2px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 7px;
+            top: 50%;
+            left: 100%;
+            transform: translate(-15px, calc(-50% + 15px));
+            font-size: 9px;
             font-weight: bold;
-            color: #ff1744;
-            background: white;
-            padding: 1px 4px;
-            border-radius: 4px;
+            color: #ffffff;
+            background: #ff1744;
+            padding: 2px 6px;
+            border-radius: 6px;
+            white-space: nowrap;
+            z-index: 15;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .room-memo {
+            font-size: 11px;
+            color: #1976d2;
+            font-weight: bold;
+            margin-left: 8px;
+            padding: 2px 6px;
+            background: rgba(25, 118, 210, 0.1);
+            border-radius: 6px;
+            display: inline-block;
         }
 
         .additional-dish-name {
@@ -648,13 +664,6 @@
             font-weight: bold;
             cursor: pointer;
             margin-top: 15px;
-        }
-
-        .w-count-display {
-            font-size: 11px;
-            font-weight: bold;
-            color: #ff1744;
-            margin-top: 3px;
         }
 
         .staff-select-grid {
@@ -1264,8 +1273,6 @@
             });
 
             let cakeInfo = '';
-            if (room.hasCake) cakeInfo += '<span class="cake-badge">ケーキ</span>';
-            if (room.hasPlate) cakeInfo += '<span class="cake-badge">プレート</span>';
 
             // 食べるスピードの色分けクラス
             const speedClass = `speed-${roomState.eatingSpeed.toLowerCase()}`;
@@ -1276,10 +1283,12 @@
                         <div class="room-name">${room.name}</div>
                         <div class="room-people">${room.people}名</div>
                     </div>
-                    <div class="room-plan">${room.plan}${cakeInfo}</div>
-                    ${room.memo ? `<div class="room-memo">${room.memo}</div>` : ''}
-                    <div class="eating-speed ${speedClass}" onclick="showEatingSpeedModal('${room.name}')">
-                        ${roomState.eatingSpeed}
+                    <div class="room-plan">${room.plan}</div>
+                    <div class="speed-memo-row">
+                        <div class="eating-speed ${speedClass}" onclick="showEatingSpeedModal('${room.name}')">
+                            ${roomState.eatingSpeed}
+                        </div>
+                        ${room.memo ? `<div class="room-memo">${room.memo}</div>` : ''}
                     </div>
                 </div>
                 <div class="course-grid" id="courses-${room.name}">
@@ -1314,23 +1323,24 @@
                 buttonText = '注';
                 statusClass = 'status-order';
             } else if (state.status === 'meat') {
-                buttonText = '肉';
+                buttonText = state.time ? state.time.split(':')[1] : '肉';
                 statusClass = 'status-meat';
             } else if (state.status === 'serve') {
                 buttonText = '提';
                 statusClass = 'status-serve';
             }
 
+            // ケーキ・プレートは丸ボタンの下に表示
             const cakeBadge = (course === '甘味' && (room.hasCake || room.hasPlate)) ? 
                 `${room.hasCake ? '<span class="cake-badge">ケーキ</span>' : ''}${room.hasPlate ? '<span class="cake-badge">プレート</span>' : ''}` : '';
 
-            // スタッフとW数は丸ボタン内に表示
+            // スタッフとW数は丸ボタンの右側に表示
             const staffBadge = state.staff ? `<div class="staff-display">${state.staff}</div>` : '';
             const wCountBadge = state.wCount > 0 ? `<div class="w-count-display">W×${state.wCount}</div>` : '';
 
             return `
                 <div class="course-item">
-                    <div class="course-name">${course}${cakeBadge}</div>
+                    <div class="course-name">${course}</div>
                     <div class="course-button ${statusClass}" onclick="clickCourse('${room.name}', '${course}')">
                         ${allergyBadge}
                         ${wCountBadge}
@@ -1339,6 +1349,7 @@
                     </div>
                     <div class="course-info">
                         ${state.time ? `<div class="time-display">${state.time}</div>` : ''}
+                        ${cakeBadge}
                     </div>
                 </div>
             `;
