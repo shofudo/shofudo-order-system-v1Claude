@@ -867,6 +867,13 @@
             alert('設定を保存しました！');
         }
 
+        // 設定を静かに保存（アラートやタブ切り替えなし）
+        function saveSettingsQuiet() {
+            localStorage.setItem('orderSettings', JSON.stringify(settings));
+            initOrderState();
+            saveOrderState();
+        }
+
         // 設定初期化
         function resetSettings() {
             if (!confirm('初期状態に戻しますか？\n（部屋・スタッフは全選択、人数2名、時間18:00、プランはスタンダードになります）')) {
@@ -923,7 +930,7 @@
                 // 追加料理
                 const roomIndex = room.isCustom ? 
                     'custom-' + settings.customRooms.indexOf(room) : 
-                    settings.rooms.indexOf(room);
+                    String(settings.rooms.indexOf(room));  // 文字列に変換！
                 
                 settings.additionalDishes.forEach(dish => {
                     if (dish.rooms.includes(roomIndex)) {
@@ -1102,7 +1109,7 @@
                             // 実際のインデックスを取得（固定部屋かカスタム部屋か）
                             const actualIndex = room.isCustom ? 
                                 'custom-' + settings.customRooms.indexOf(room) : 
-                                settings.rooms.indexOf(room);
+                                String(settings.rooms.indexOf(room));  // 文字列に変換！
                             const checked = dish.rooms.includes(actualIndex) ? 'checked' : '';
                             return `
                                 <label style="display: inline-block; margin-right: 15px; font-weight: normal;">
@@ -1118,7 +1125,7 @@
                         ${dish.rooms.map(roomId => {
                             const room = roomId.toString().startsWith('custom-') ? 
                                 settings.customRooms[parseInt(roomId.split('-')[1])] :
-                                settings.rooms[roomId];
+                                settings.rooms[parseInt(roomId)];  // 文字列を数値に変換してインデックスとして使用
                             if (!room) return '';
                             const courses = PLANS[room.plan];
                             const currentPos = dish.positions[roomId] || courses[0];
@@ -1147,20 +1154,24 @@
                 rooms: [],
                 positions: {}
             });
+            saveSettingsQuiet();
             renderAdditionalDishes();
         }
 
         function removeAdditionalDish(index) {
             settings.additionalDishes.splice(index, 1);
+            saveSettingsQuiet();
             renderAdditionalDishes();
         }
 
         function updateDishName(index, value) {
             settings.additionalDishes[index].name = value;
+            saveSettingsQuiet();
         }
 
         function updateDishQuantity(index, value) {
             settings.additionalDishes[index].quantity = parseInt(value);
+            saveSettingsQuiet();
         }
 
         function toggleDishRoom(dishIndex, roomId, checked) {
@@ -1170,7 +1181,7 @@
                     dish.rooms.push(roomId);
                     const room = roomId.toString().startsWith('custom-') ? 
                         settings.customRooms[parseInt(roomId.split('-')[1])] :
-                        settings.rooms[roomId];
+                        settings.rooms[parseInt(roomId)];  // 文字列を数値に変換してインデックスとして使用
                     const courses = PLANS[room.plan];
                     dish.positions[roomId] = courses[0];
                 }
@@ -1178,11 +1189,13 @@
                 dish.rooms = dish.rooms.filter(r => r !== roomId);
                 delete dish.positions[roomId];
             }
+            saveSettingsQuiet();
             renderAdditionalDishes();
         }
 
         function updateDishPosition(dishIndex, roomId, position) {
             settings.additionalDishes[dishIndex].positions[roomId] = position;
+            saveSettingsQuiet();
         }
 
         // 営業ページレンダリング
@@ -1247,7 +1260,7 @@
             // 部屋のインデックスを取得
             const roomIndex = room.isCustom ? 
                 'custom-' + settings.customRooms.indexOf(room) : 
-                settings.rooms.indexOf(room);
+                String(settings.rooms.indexOf(room));  // 文字列に変換！
             
             // 各コースの前に追加料理があるかチェック
             baseCourses.forEach((course, index) => {
