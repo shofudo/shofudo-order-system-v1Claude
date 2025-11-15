@@ -712,56 +712,12 @@
 
         /* iPadなどタブレット用の設定 */
         @media (min-width: 769px) and (max-width: 1024px) {
-            .course-button {
-                width: 80px;
-                height: 80px;
-                font-size: 18px;
+            .course-grid {
+                gap: 60px;  /* ボタン同士の間隔を広げる */
             }
             
-            .course-name {
-                font-size: 12px;
-                margin-bottom: 4px;
-            }
-            
-            .course-info {
-                font-size: 13px;
-            }
-            
-            .time-display {
-                font-size: 14px;
-            }
-            
-            .staff-display {
-                font-size: 11px;
-                padding: 3px 8px;
-            }
-            
-            .allergy-badge {
-                font-size: 9px;
-            }
-            
-            .cake-badge {
-                font-size: 10px;
-                padding: 2px 6px;
-            }
-            
-            .eating-speed {
-                font-size: 16px;
-                padding: 4px 10px;
-            }
-            
-            .room-info {
-                min-width: 160px;
-                max-width: 160px;
-            }
-            
-            .room-name {
-                font-size: 18px;
-            }
-            
-            .room-people {
-                font-size: 14px;
-            }
+            /* ボタンサイズは元の50pxのまま維持 */
+            /* 間隔を広げることでタグの重なりを防止 */
         }
     </style>
 </head>
