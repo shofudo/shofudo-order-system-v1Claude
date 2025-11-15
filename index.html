@@ -692,12 +692,7 @@
             transform: scale(0.95);
         }
 
-        /* スマホ向けの設定 */
-        @media (max-width: 599px) {
-            .course-grid {
-                gap: 52px;  /* スマホは狭めの間隔 */
-            }
-            
+        @media (max-width: 768px) {
             .course-button {
                 width: 48px;
                 height: 48px;
@@ -713,21 +708,6 @@
                 font-size: 14px;
                 padding: 3px 8px;
             }
-        }
-
-        /* タブレット（iPad）・PC 共通の設定 */
-        @media (min-width: 600px) {
-            .course-grid {
-                gap: 90px;  /* タブレット・PCでボタン間隔を広げる */
-            }
-            
-            .room-info {
-                min-width: 120px;
-                max-width: 120px;
-            }
-            
-            /* ボタンサイズは元の50pxのまま維持 */
-            /* 間隔を広げることでタグの重なりを防止 */
         }
     </style>
 </head>
