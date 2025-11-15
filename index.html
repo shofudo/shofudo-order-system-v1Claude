@@ -711,9 +711,14 @@
         }
 
         /* iPadなどタブレット用の設定 */
-        @media (min-width: 769px) and (max-width: 1024px) {
+        @media (min-width: 769px) {
             .course-grid {
-                gap: 60px;  /* ボタン同士の間隔を広げる */
+                gap: 90px;  /* ボタン同士の間隔を大幅に広げる */
+            }
+            
+            .room-info {
+                min-width: 120px;  /* 部屋情報エリアを少し縮小 */
+                max-width: 120px;
             }
             
             /* ボタンサイズは元の50pxのまま維持 */
