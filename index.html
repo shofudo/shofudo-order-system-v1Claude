@@ -692,7 +692,12 @@
             transform: scale(0.95);
         }
 
-        @media (max-width: 768px) {
+        /* スマホ向けの設定 */
+        @media (max-width: 599px) {
+            .course-grid {
+                gap: 52px;  /* スマホは狭めの間隔 */
+            }
+            
             .course-button {
                 width: 48px;
                 height: 48px;
@@ -710,14 +715,14 @@
             }
         }
 
-        /* iPadなどタブレット用の設定 */
-        @media (min-width: 769px) {
+        /* タブレット（iPad）・PC 共通の設定 */
+        @media (min-width: 600px) {
             .course-grid {
-                gap: 90px;  /* ボタン同士の間隔を大幅に広げる */
+                gap: 90px;  /* タブレット・PCでボタン間隔を広げる */
             }
             
             .room-info {
-                min-width: 120px;  /* 部屋情報エリアを少し縮小 */
+                min-width: 120px;
                 max-width: 120px;
             }
             
